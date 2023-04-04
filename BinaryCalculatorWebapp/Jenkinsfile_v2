@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    //PROJECT = "REPLACE_WITH_YOUR_PROJECT_ID"
+    ////PROJECT = "REPLACE_WITH_YOUR_PROJECT_ID"
 	PROJECT = "deliverable-4-382715"
     APP_NAME = "binary-calculator2"
 	//CLUSTER = "REPLACE_WITH_YOUR_CLUSTER_NAME"
@@ -12,7 +12,7 @@ pipeline {
   
 agent {
     kubernetes {
-	label 'sample-app'
+      label 'topology.gke.io/zone=northamerica-northeast1-b'
       defaultContainer 'jnlp'
       yaml """
 apiVersion: v1
@@ -37,6 +37,7 @@ spec:
     tty: true
 """
 }
+
   }
   tools {
     maven 'maven' 
